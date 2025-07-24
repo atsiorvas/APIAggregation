@@ -1,0 +1,133 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Aggregation Service",
+    "version": "v1",
+    "description": "Aggregates data from external APIs and provides statistics. Uses JWT authentication for protected endpoints."
+  },
+  "paths": {
+    "/api/aggregate/login": {
+      "post": {
+        "summary": "Login and get JWT token",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Email": { "type": "string" },
+                  "Password": { "type": "string" }
+                },
+                "required": ["Email", "Password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JWT token returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/aggregate/data": {
+      "get": {
+        "summary": "Get aggregated data from external APIs",
+        "tags": ["Data"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Sort by field (e.g., 'source')",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Aggregated data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/AggregatedData" }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/api/aggregate/stats": {
+      "get": {
+        "summary": "Get API call statistics",
+        "tags": ["Stats"],
+        "security": [{ "BearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Performance metrics per API",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/ApiPerformance" }
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Enter 'Bearer {token}'"
+      }
+    },
+    "schemas": {
+      "AggregatedData": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string" },
+          "data": { "type": "object" }
+        }
+      },
+      "ApiPerformance": {
+        "type": "object",
+        "properties": {
+          "api": { "type": "string" },
+          "totalRequests": { "type": "integer" },
+          "avgResponseTimeMs": { "type": "number", "format": "double" },
+          "performanceBucket": { "type": "string" }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ]
+}

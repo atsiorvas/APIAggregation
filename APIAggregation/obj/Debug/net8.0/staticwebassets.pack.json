@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/antonistsiorvas/RiderProjects/WebApplication1/APIAggregation/wwwroot/swagger/swagger.json",
+      "PackagePath": "staticwebassets/swagger/swagger.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.APIAggregation.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.APIAggregation.props",
+      "PackagePath": "build\\APIAggregation.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.APIAggregation.props",
+      "PackagePath": "buildMultiTargeting\\APIAggregation.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.APIAggregation.props",
+      "PackagePath": "buildTransitive\\APIAggregation.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

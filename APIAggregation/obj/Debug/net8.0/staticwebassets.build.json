@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "iu4CA7SsYQEp55/FqXaLMS+pyv/H1HeOSglYTPiddkk=",
+  "Source": "APIAggregation",
+  "BasePath": "_content/APIAggregation",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "APIAggregation/wwwroot",
+      "Source": "APIAggregation",
+      "ContentRoot": "/Users/antonistsiorvas/RiderProjects/WebApplication1/APIAggregation/wwwroot/",
+      "BasePath": "_content/APIAggregation",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/antonistsiorvas/RiderProjects/WebApplication1/APIAggregation/wwwroot/swagger/swagger.json",
+      "SourceId": "APIAggregation",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/antonistsiorvas/RiderProjects/WebApplication1/APIAggregation/wwwroot/",
+      "BasePath": "_content/APIAggregation",
+      "RelativePath": "swagger/swagger.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/swagger/swagger.json"
+    }
+  ]
+}
